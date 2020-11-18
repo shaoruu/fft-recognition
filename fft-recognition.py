@@ -1,7 +1,8 @@
+import time
+
 import librosa
 import numpy as np
 import scipy
-import time
 
 # Constants
 LOADING_BAR = [
@@ -19,14 +20,7 @@ LOADING_BAR = [
 
 
 def get_variance(a, b):
-    # Helper function
-    if len(a) != len(b):
-        return False
-    output = 0
-    for i in range(len(a)):
-        output += np.abs(np.abs(a[i])-np.abs(b[i]))
-    return output
-
+    return len(a) != len(b) or np.sum(np.abs(np.abs(a-np.abs(b))))
 
 # Resource paths
 full_clip_path = 'resources/full-clip.wav'
